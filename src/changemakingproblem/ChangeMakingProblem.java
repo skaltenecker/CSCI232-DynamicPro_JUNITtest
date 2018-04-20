@@ -8,6 +8,7 @@ package changemakingproblem;
 *          The Solution to this problem uses dynamic programing 
  */
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,33 +19,80 @@ import java.util.List;
  */
 public class ChangeMakingProblem {
 
-    public static List changeMaking(int[] coins, int value){     
+    public static int[] changeMaking(int[] coins, int value){     
         //exception if array is empty
         if(coins.length == 0){
             throw new IllegalArgumentException("Can't Handle Empty Arrays");
         }
-        
+        //exception if array has negative numbers
         for(int i=0; i<coins.length; i++){
             if(coins[i] <= 0){
                 throw new IllegalArgumentException("Need Positive Denominations");
             }
         }
-        
         //sort array to put lowest value coins at the begining of array
         Arrays.sort(coins);
-
         //initialize results array
         List result = new ArrayList();
-                
-        //find the largest denomination that is samller than value
-        //start with the largest coin values
-        for(int i=coins.length-1; i>=0; i--){
-            while(value >= coins[i]){
-                value = value-coins[i];
-                result.add(coins[i]);
+        
+        int[] coinTableUsed = new int[value+1];//stores the coins used for coinTable
+        int[] coinTable = new int[value+1];//stores the min number of coins for every value
+        int minNum = 0;//minimum number of coins required for value
+        //a is amount we are calculating in the table
+        for(int a=1; a<=value; a++){
+            //for each coin denomination
+            for(int d=0; d<coins.length; d++){
+                if(a>=coins[d]){
+                    int den = coins[d];
+                    minNum = coinTable[a-den] +1;
+                    if((minNum <= coinTable[a]) || (coinTable[a] == 0)){
+                        coinTable[a] = minNum;
+                        coinTableUsed[a] = den;
+                    }
+                }                
+            }      
+        }
+        minNum = coinTable[value];
+        int[] usedCoins = new int[minNum];
+        int n = 0;
+        int a = value;
+        //calculate the coins used from the coinTables
+        while(usedCoins[minNum-1] == 0){
+            usedCoins[n] = coinTableUsed[a]; 
+            a = a-usedCoins[n];
+            n++;
+            
+            
+        }
+        System.out.println("The Minimum Number of Coins for "+value+" is : "+coinTable[value]);
+        System.out.println("The coins are: ");
+        for(int i=0; i<usedCoins.length; i++){
+            System.out.println(usedCoins[i]);
+        }
+        System.out.println("Coin Table List: ");
+        int enter = 0;
+        for(int i=0; i< coinTable.length; i++){
+            if(enter == 10){
+                System.out.println();
+                System.out.print(coinTable[i]+", ");
+                enter = 0;
+            }
+            else if(i == (coinTable.length)-1){
+                System.out.print(coinTable[i]+"\n");
+            }
+            else{
+                System.out.print(coinTable[i]+", ");
+                enter++;
             }
         }
-        return result;//remove
+                    
+        return usedCoins;
+    } 
+    public static void main(String[] args){
+        int value = 12;
+        int[] coins = {1,5,10,21,25};        
+        changeMaking(coins, value);
+               
     } 
     
 }
