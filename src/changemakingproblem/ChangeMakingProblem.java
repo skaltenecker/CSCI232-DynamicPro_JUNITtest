@@ -88,11 +88,5 @@ public class ChangeMakingProblem {
                     
         return usedCoins;
     } 
-    public static void main(String[] args){
-        int value = 12;
-        int[] coins = {1,5,10,21,25};        
-        changeMaking(coins, value);
-               
-    } 
     
 }
