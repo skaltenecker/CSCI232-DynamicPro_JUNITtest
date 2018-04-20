@@ -41,7 +41,7 @@ public class ChangeMakingProblemTest {
      * Test of main method, of class ChangeMakingProblem.
      */
     @Test
-    public void testMain() {
+    public void testchangeMaking() {
         System.out.println("main");
         String[] args = null;
         ChangeMakingProblem.main(args);
