@@ -4,7 +4,8 @@ package changemakingproblem;
 *Date: April 19, 2018
 *Overview: This program has an assigned value and a list of coins. The goal is get to the value with the fewest amount of coins
 *          There is no main method. The progrm is driven off of the JUNIT tests.
-           The JUNIT tests check for null entries, impossible solutions,
+*          The JUNIT tests check for null entries, impossible solutions, and correct outputs.
+*          The Solution to this problem uses dynamic programing 
  */
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 public class ChangeMakingProblem {
 
-    public static List greedcoin(int[] coins, int value){     
+    public static List changeMaking(int[] coins, int value){     
         //exception if array is empty
         if(coins.length == 0){
             throw new IllegalArgumentException("Can't Handle Empty Arrays");
