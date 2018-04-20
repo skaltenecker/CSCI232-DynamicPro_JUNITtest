@@ -8,70 +8,57 @@ package changemakingproblem;
 *          The Solution to this problem uses dynamic programing 
  */
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class ChangeMakingProblemTest {
 
     @Test
-    public void changeMakingT1() {
-        System.out.println("Greedy Coins Test 1");
+    public void changeMakingT1() {//coins in random order
+        System.out.println("Dynamic Coins Test 1");
         int[] coins = {5,1,25,10};
         int value = 62;
-        List expected = new ArrayList();
-        expected.add(25);
-        expected.add(25);
-        expected.add(10);
-        expected.add(1);
-        expected.add(1);
-        assertEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        int[] expected = {25,25,10,1,1};
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
     }
     @Test
-    public void changeMakingT2() {
-        System.out.println("Greedy Coins Test 2");
-        int[] coins = {5,1,25,10};
-        int value = 86;
-        List expected = new ArrayList();
-        expected.add(25);
-        expected.add(25);
-        expected.add(25);
-        expected.add(10);
-        expected.add(1);
-        assertEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+    public void changeMakingT2() {//test correct output
+        System.out.println("Dynamic Coins Test 2");
+        int[] coins = {1,5,10,12};
+        int value = 16;
+        int[] expected = {10,5,1};    
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
     }
     @Test
-    public void changeMakingT3() {
-        System.out.println("Greedy Coins Test 3");
-        int[] coins = {1,2,5,10,20};
-        int value = 58;
-        List expected = new ArrayList();
-        expected.add(20);
-        expected.add(20);
-        expected.add(10);
-        expected.add(5);
-        expected.add(2);
-        expected.add(1);
-        assertEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+    public void changeMakingT3() {//test correct output
+        System.out.println("Dynamic Coins Test 3");
+        int[] coins = {1,5,10,21,25};
+        int value = 63;
+        int[] expected = {21,21,21};
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void changeMakingT4() {
-        System.out.println("Greedy Coins Test 4");
+    public void changeMakingT4() {//test for null exception throw
+        System.out.println("Dynamic Coins Test 4");
         int[] coins = {};
         int value = 10;
-        List expected = new ArrayList();
-        assertEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        int[] expected = {25,25,10,1,1};
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
     }
        
     @Test(expected=IllegalArgumentException.class)
-    public void changeMakingT5() {
-        System.out.println("Greedy Coins Test 5");
+    public void changeMakingT5() {//test for invalid argument throw
+        System.out.println("Dynamic Coins Test 5");
         int[] coins = {-1,1,2,0,10};
         int value = 10;
-        List expected = new ArrayList();
-        assertEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        int[] expected = {25,25,10,1,1};    
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
     }
     
 }
