@@ -25,10 +25,15 @@ public class ChangeMakingProblem {
         if(coins.length == 0){
             throw new IllegalArgumentException("Can't Handle Empty Arrays");
         }
-        //exception if array has negative numbers
+        //exception if array or value has negative numbers
         for(int i=0; i<coins.length; i++){
             if(coins[i] <= 0){
                 throw new IllegalArgumentException("Need Positive Denominations");
+            }
+            
+            if(value <= 0)
+            {
+                throw new IllegalArgumentException("Need Positive Value Requested");
             }
         }
         
@@ -39,6 +44,15 @@ public class ChangeMakingProblem {
         
         //sort array to put lowest value coins at the begining of array
         Arrays.sort(coins);
+        
+        //exception if array contains duplicate denominations
+        for(int i = 1; i < coins.length; i++)
+        {
+            if(coins[i] == coins[i - 1]){
+                throw new IllegalArgumentException("Can't Handle Duplicate Denominations");
+            }
+        }
+        
         //initialize results array
         List result = new ArrayList();
         

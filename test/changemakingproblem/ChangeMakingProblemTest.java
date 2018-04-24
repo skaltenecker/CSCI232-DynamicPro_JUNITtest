@@ -82,4 +82,8 @@ public class ChangeMakingProblemTest {
         Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
         System.out.println("Test Done\n");
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> master
 }
