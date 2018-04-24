@@ -1,6 +1,6 @@
 package changemakingproblem;
 /*
-*Authors: Scott Kaltenecker Lab Section[5]
+*Authors: Scott Kaltenecker Lab Section[5], Blake Mitchell Lab Section [4]
 *Date: April 19, 2018
 *Overview: This program has an assigned value and a list of coins. The goal is get to the value with the fewest amount of coins
 *          There is no main method. The progrm is driven off of the JUNIT tests.
@@ -26,14 +26,28 @@ public class ChangeMakingProblem {
         if(coins.length == 0){
             throw new IllegalArgumentException("Can't Handle Empty Arrays");
         }
-        //exception if array has negative numbers
+        //exception if array or value has negative numbers
         for(int i=0; i<coins.length; i++){
             if(coins[i] <= 0){
                 throw new IllegalArgumentException("Need Positive Denominations");
             }
+            
+            if(value <= 0)
+            {
+                throw new IllegalArgumentException("Need Positive Value Requested");
+            }
         }
         //sort array to put lowest value coins at the begining of array
         Arrays.sort(coins);
+        
+        //exception if array contains duplicate denominations
+        for(int i = 1; i < coins.length; i++)
+        {
+            if(coins[i] == coins[i - 1]){
+                throw new IllegalArgumentException("Can't Handle Duplicate Denominations");
+            }
+        }
+        
         //initialize results array
         List result = new ArrayList();
         
