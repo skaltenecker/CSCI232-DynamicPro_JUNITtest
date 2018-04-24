@@ -6,7 +6,9 @@ package changemakingproblem;
 *          There is no main method. The progrm is driven off of the JUNIT tests.
 *          The JUNIT tests check for null entries, impossible solutions, and correct outputs.
 *          The Solution to this problem uses dynamic programing 
- */
+*Sources:  We implement the same methods descibed in class and in the link provided in the assigment: 
+*          http://interactivepython.org/runestone/static/pythonds/Recursion/DynamicProgramming.html
+*/
 
 import java.io.IOException;
 import java.util.ArrayList;
