@@ -30,12 +30,11 @@ public class ChangeMakingProblem {
             if(coins[i] <= 0){
                 throw new IllegalArgumentException("Need Positive Denominations");
             }
-            
-            if(value <= 0)
+        }
+        if(value <= 0)
             {
                 throw new IllegalArgumentException("Need Positive Value Requested");
             }
-        }
         
        //exception when value is less than 0
        if(value < 0){
