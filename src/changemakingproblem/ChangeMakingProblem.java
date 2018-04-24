@@ -10,7 +10,6 @@ package changemakingproblem;
 *          http://interactivepython.org/runestone/static/pythonds/Recursion/DynamicProgramming.html
 */
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,12 +30,17 @@ public class ChangeMakingProblem {
             if(coins[i] <= 0){
                 throw new IllegalArgumentException("Need Positive Denominations");
             }
-            
-            if(value <= 0)
+        }
+        if(value <= 0)
             {
                 throw new IllegalArgumentException("Need Positive Value Requested");
             }
-        }
+        
+       //exception when value is less than 0
+       if(value < 0){
+           throw new IllegalArgumentException("Need Positive Value Requested");
+       }
+        
         //sort array to put lowest value coins at the begining of array
         Arrays.sort(coins);
         
