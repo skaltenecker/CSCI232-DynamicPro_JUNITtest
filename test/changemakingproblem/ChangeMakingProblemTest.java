@@ -1,6 +1,6 @@
 package changemakingproblem;
 /*
-*Authors: Scott Kaltenecker Lab Section[5], Blake Mitchell Lab Section [4]
+*Authors: Scott Kaltenecker Lab Section[5], Blake Mitchell Lab Section [4], Franki Taylor: Lab Section [4]
 *Date: April 19, 2018
 *Overview: This program has an assigned value and a list of coins. The goal is get to the value with the fewest amount of coins
 *          There is no main method. The progrm is driven off of the JUNIT tests.
@@ -82,5 +82,24 @@ public class ChangeMakingProblemTest {
         Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
         System.out.println("Test Done\n");
     }
-
+    
+    @Test
+    public void changeMakingT8(){//test for change of 72 cents
+    	System.out.println("Dynamic Coins Test 8");
+    	int [] coins = {2,6};
+    	int value = 72;
+    	int[] expected = {6,6,6,6,6,6,6,6,6,6,6,6};
+    	Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins, value));
+    	System.out.println("Test Done\n");
+    }
+    
+    @Test
+    public void changeMakingT9() {//test for invalid coinage requested
+        System.out.println("Dynamic Coints Test 9");
+        int[] coins = {1,5,10,25};
+        int value = 50;
+        int[] expected = {25,25};
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
+    }
 }
