@@ -83,17 +83,17 @@ public class ChangeMakingProblemTest {
         System.out.println("Test Done\n");
     }
     
-    @Test(expected=IllegalArgumentException.class)
+    @Test
     public void changeMakingT8(){//test for change of 72 cents
     	System.out.println("Dynamic Coins Test 8");
     	int [] coins = {2,6};
     	int value = 72;
-    	int[] expected = [];
+    	int[] expected = {6,6,6,6,6,6,6,6,6,6,6,6};
     	Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins, value));
     	System.out.println("Test Done\n");
     }
     
-    @Test(expected=IllegalArgumentException.class)
+    @Test
     public void changeMakingT9() {//test for invalid coinage requested
         System.out.println("Dynamic Coints Test 9");
         int[] coins = {1,5,10,25};
