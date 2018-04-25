@@ -93,4 +93,13 @@ public class ChangeMakingProblemTest {
     	System.out.println("Test Done\n");
     }
     
+    @Test(expected=IllegalArgumentException.class)
+    public void changeMakingT6() {//test for invalid coinage requested
+        System.out.println("Dynamic Coints Test 6");
+        int[] coins = {1,5,10,25};
+        int value = 50;
+        int[] expected = {25,25};
+        Assert.assertArrayEquals(expected, ChangeMakingProblem.changeMaking(coins,value));
+        System.out.println("Test Done\n");
+    }
 }
