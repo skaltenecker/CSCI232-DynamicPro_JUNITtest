@@ -1,6 +1,6 @@
 package changemakingproblem;
 /*
-*Authors: Scott Kaltenecker Lab Section[5], Blake Mitchell Lab Section [4]
+*Authors: Scott Kaltenecker Lab Section[5], Blake Mitchell Lab Section [4], Franki Taylor: Lab Section [4]
 *Date: April 19, 2018
 *Overview: This program has an assigned value and a list of coins. The goal is get to the value with the fewest amount of coins
 *          There is no main method. The progrm is driven off of the JUNIT tests.
